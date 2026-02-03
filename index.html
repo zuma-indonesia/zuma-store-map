@@ -116,6 +116,8 @@
         .start-current .coords { font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.9; }
         .start-current .clear-btn { margin-left: auto; background: rgba(255,255,255,0.2); border: none; color: white; width: 20px; height: 20px; border-radius: 50%; cursor: pointer; font-size: 10px; }
         .start-current .clear-btn:hover { background: rgba(255,255,255,0.3); }
+        .search-result-item { padding: 10px 12px; background: white; border: 1px solid var(--gray-200); border-radius: 8px; margin-bottom: 6px; cursor: pointer; transition: all 0.2s; }
+        .search-result-item:hover { background: var(--gray-100); border-color: var(--accent); }
 
         .route-chips { display: flex; flex-direction: column; gap: 8px; }
         .chip { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--gray-100); border-radius: 10px; font-size: 13px; font-weight: 600; cursor: grab; transition: all 0.2s; }
@@ -364,7 +366,7 @@
             .start-label { display: none; }
             .start-options { margin-bottom: 0; gap: 6px; }
             .start-opt { flex: 1; justify-content: center; padding: 10px 8px; font-size: 11px; }
-            .start-opt:nth-child(3), .start-opt:nth-child(4) { display: none; }
+            .start-opt:nth-child(4) { display: none; }
             #startManualInput { display: none !important; }
             .start-current { margin-top: 6px; }
 
@@ -562,10 +564,6 @@
             <span>Rute</span>
             <span class="nav-badge" id="mobileRouteBadge">0</span>
         </button>
-        <button class="nav-btn" onclick="setStartMode('gps')">
-            <span class="nav-icon">📍</span>
-            <span>Lokasi</span>
-        </button>
     </nav>
 
     <!-- Mobile GPS Button -->
@@ -649,20 +647,16 @@
                 <div class="start-section">
                     <div class="start-label">📍 Titik Mulai (Hotel/Lokasi Anda)</div>
                     <div class="start-options">
-                        <button class="start-opt active" onclick="setStartMode('auto')">🔄 Auto (Bandara)</button>
+                        <button class="start-opt active" onclick="setStartMode('auto')">🔄 Bandara</button>
                         <button class="start-opt" onclick="setStartMode('gps')">📍 Lokasi Saya</button>
-                        <button class="start-opt" onclick="setStartMode('click')">🖱️ Klik Peta</button>
-                        <button class="start-opt" onclick="setStartMode('manual')">✏️ Manual</button>
+                        <button class="start-opt" onclick="setStartMode('search')">🔍 Cari Lokasi</button>
                     </div>
-                    <div id="startManualInput" style="display:none;">
+                    <div id="startSearchInput" style="display:none; margin-top:8px;">
                         <div class="start-input-wrap">
-                            <input type="text" class="start-input" id="startName" placeholder="Nama lokasi (cth: Hotel Ibis)">
+                            <input type="text" class="start-input" id="searchLocation" placeholder="Ketik alamat/nama tempat...">
+                            <button class="btn btn-primary" onclick="searchStartLocation()" style="padding:8px 12px;">Cari</button>
                         </div>
-                        <div class="start-input-wrap" style="margin-top:6px;">
-                            <input type="text" class="start-input" id="startLat" placeholder="Latitude" style="width:48%">
-                            <input type="text" class="start-input" id="startLng" placeholder="Longitude" style="width:48%">
-                            <button class="btn btn-primary" onclick="applyManualStart()" style="padding:8px 12px;">OK</button>
-                        </div>
+                        <div id="searchResults" style="margin-top:6px;"></div>
                     </div>
                     <div id="startCurrent" class="start-current" style="display:none;">
                         <span>📍</span>
@@ -879,6 +873,10 @@ function setStartMode(mode) {
         document.querySelector('.app').classList.remove('click-mode-active');
     }
 
+    // Hide search input by default
+    const searchInput = document.getElementById('startSearchInput');
+    if (searchInput) searchInput.style.display = 'none';
+
     switch(mode) {
         case 'auto':
             clearCustomStart();
@@ -886,12 +884,56 @@ function setStartMode(mode) {
         case 'gps':
             getGPSLocation();
             break;
-        case 'click':
-            enableClickMode();
+        case 'search':
+            if (searchInput) searchInput.style.display = 'block';
+            document.getElementById('searchLocation')?.focus();
             break;
-        case 'manual':
-            document.getElementById('startManualInput').style.display = 'block';
-            break;
+    }
+}
+
+// Search location using Nominatim (OpenStreetMap)
+async function searchStartLocation() {
+    const query = document.getElementById('searchLocation').value.trim();
+    if (!query) {
+        toast('Ketik alamat/nama tempat dulu', 'error');
+        return;
+    }
+
+    toast('Mencari lokasi...', '');
+
+    try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=id&limit=5`);
+        const results = await response.json();
+
+        const resultsDiv = document.getElementById('searchResults');
+        if (results.length === 0) {
+            resultsDiv.innerHTML = '<div style="padding:8px;color:var(--gray-600);font-size:11px;">Tidak ditemukan. Coba kata kunci lain.</div>';
+            return;
+        }
+
+        resultsDiv.innerHTML = results.map(r => `
+            <div class="search-result-item" onclick="selectSearchResult('${r.display_name.replace(/'/g, "\\'")}', ${r.lat}, ${r.lon})">
+                <div style="font-weight:600;font-size:11px;">${r.display_name.split(',')[0]}</div>
+                <div style="font-size:10px;color:var(--gray-600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${r.display_name}</div>
+            </div>
+        `).join('');
+    } catch (err) {
+        toast('Gagal mencari: ' + err.message, 'error');
+    }
+}
+
+function selectSearchResult(name, lat, lng) {
+    const shortName = name.split(',')[0];
+    setCustomStart(shortName, parseFloat(lat), parseFloat(lng));
+    map.setView([lat, lng], 14);
+    document.getElementById('searchResults').innerHTML = '';
+    document.getElementById('searchLocation').value = '';
+    document.getElementById('startSearchInput').style.display = 'none';
+    toast('Lokasi dipilih: ' + shortName, 'success');
+
+    // On mobile, close sidebar and show map
+    if (window.innerWidth <= 768) {
+        mobileShowMap();
     }
 }
 
