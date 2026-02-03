@@ -321,11 +321,21 @@
                 background: white;
                 border-bottom: 1px solid var(--gray-200);
                 margin-bottom: 0;
+                cursor: default !important;
+                touch-action: pan-y !important;
+                user-select: none;
             }
             .chip:active { background: var(--gray-100); }
             .chip .num { width: 24px; height: 24px; font-size: 11px; }
             .chip .dist { font-size: 10px; }
             .chip .remove { width: 26px; height: 26px; font-size: 14px; }
+
+            /* Force scroll pada container */
+            .route-list-container {
+                overflow-y: scroll !important;
+                -webkit-overflow-scrolling: touch !important;
+                overscroll-behavior: contain;
+            }
 
             /* Scroll sama persis dengan toko */
             .list, .route-list-container {
