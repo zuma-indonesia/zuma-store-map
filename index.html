@@ -226,8 +226,252 @@
         .click-mode-active .click-indicator { display: block; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 
-        @media (max-width: 900px) {
-            .app { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+        /* Mobile Bottom Nav */
+        .mobile-nav { display: none; }
+
+        /* ========== MOBILE RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .app {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr auto;
+                height: 100vh;
+                height: 100dvh;
+            }
+
+            /* Sidebar as overlay */
+            .sidebar {
+                position: fixed;
+                bottom: 60px;
+                left: 0;
+                right: 0;
+                top: 0;
+                z-index: 2000;
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+                border-radius: 20px 20px 0 0;
+                box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
+            }
+            .sidebar.open { transform: translateY(0); }
+
+            /* Compact header for mobile */
+            .header { padding: 12px; }
+            .logo { margin-bottom: 8px; }
+            .logo-icon { width: 32px; height: 32px; font-size: 14px; }
+            .logo h1 { font-size: 16px; }
+            .stats { gap: 6px; }
+            .stat { padding: 8px 6px; }
+            .stat .num { font-size: 18px; }
+            .stat .lbl { font-size: 8px; }
+
+            /* Tabs */
+            .tabs { position: sticky; top: 0; z-index: 10; }
+            .tab { padding: 12px 8px; font-size: 11px; }
+
+            /* Search & Filters */
+            .search { padding: 10px; }
+            .search input { padding: 12px 14px 12px 38px; font-size: 14px; }
+            .filters { gap: 4px; }
+            .filter { padding: 6px 10px; font-size: 10px; }
+
+            /* Cards */
+            .card { padding: 12px; }
+            .card-name { font-size: 13px; }
+            .card-actions { flex-wrap: wrap; }
+            .btn { padding: 10px 12px; font-size: 11px; flex: 1; justify-content: center; text-align: center; }
+
+            /* Route Section */
+            .route-header { padding: 12px; }
+            .route-title { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .route-title h3 { font-size: 13px; }
+            .route-btns { width: 100%; }
+            .route-btns button { flex: 1; padding: 8px 6px; font-size: 10px; }
+            .route-stats { gap: 12px; justify-content: space-between; width: 100%; }
+            .route-stat .val { font-size: 16px; }
+            .route-stat .lbl { font-size: 9px; }
+
+            /* Start Section */
+            .start-section { padding: 10px; }
+            .start-label { font-size: 10px; margin-bottom: 6px; }
+            .start-options { gap: 4px; }
+            .start-opt { padding: 8px 8px; font-size: 9px; flex: 1; justify-content: center; min-width: 70px; }
+            .start-input { padding: 10px; font-size: 12px; }
+            .start-current { padding: 10px; font-size: 10px; }
+
+            /* Chips */
+            .chip { padding: 10px 12px; font-size: 12px; }
+            .chip .num { width: 24px; height: 24px; font-size: 11px; }
+            .chip .dist { font-size: 10px; }
+            .chip .remove { width: 22px; height: 22px; }
+
+            /* Action buttons */
+            .route-action { padding: 10px; }
+            .btn-full { padding: 12px; font-size: 12px; }
+
+            /* Map takes full screen */
+            .map-wrap {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 60px;
+                z-index: 1;
+            }
+            #map { height: 100% !important; }
+
+            /* Map controls repositioned */
+            .map-ctrls {
+                top: 10px;
+                right: 10px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 6px;
+                max-width: 140px;
+                justify-content: flex-end;
+            }
+            .map-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+                border-radius: 8px;
+            }
+
+            /* Legend - compact or hidden */
+            .legend {
+                bottom: 70px;
+                right: 10px;
+                padding: 8px 10px;
+                max-width: 120px;
+                font-size: 9px;
+            }
+            .legend-title { font-size: 9px; margin-bottom: 6px; }
+            .legend-item { font-size: 8px; margin-bottom: 3px; gap: 5px; }
+            .legend-dot { width: 12px; height: 12px; }
+
+            /* Detail Panel */
+            .detail-panel {
+                top: auto;
+                bottom: 70px;
+                left: 10px;
+                right: 10px;
+                width: auto;
+                max-height: 50vh;
+            }
+            .detail-header { padding: 10px 12px; }
+            .detail-header h4 { font-size: 12px; }
+            .detail-item { padding: 10px; gap: 8px; }
+            .detail-num { width: 28px; height: 28px; font-size: 11px; }
+            .detail-name { font-size: 12px; }
+            .detail-sub, .detail-from { font-size: 9px; }
+            .detail-dist .km { font-size: 13px; }
+
+            /* Popup */
+            .leaflet-popup-content { min-width: 220px; }
+            .popup-head { padding: 10px 12px; }
+            .popup-head h4 { font-size: 13px; }
+            .popup-body { padding: 10px 12px; }
+            .popup-addr { font-size: 10px; }
+            .popup-dist { font-size: 11px; padding: 6px 10px; }
+            .popup-btn { padding: 10px; font-size: 11px; }
+
+            /* Toast */
+            .toast-wrap { bottom: 70px; }
+            .toast { padding: 10px 16px; font-size: 12px; }
+
+            /* Click indicator */
+            .click-indicator {
+                top: 40%;
+                font-size: 12px;
+                padding: 10px 16px;
+            }
+
+            /* Bottom Navigation */
+            .mobile-nav {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 60px;
+                background: var(--white);
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+                z-index: 3000;
+                padding: 0 10px;
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+            .nav-btn {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                border: none;
+                background: none;
+                color: var(--gray-600);
+                font-size: 10px;
+                font-weight: 600;
+                font-family: inherit;
+                cursor: pointer;
+                transition: all 0.2s;
+                position: relative;
+            }
+            .nav-btn .nav-icon { font-size: 20px; }
+            .nav-btn.active { color: var(--accent); }
+            .nav-btn.active::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30px;
+                height: 3px;
+                background: var(--accent);
+                border-radius: 0 0 3px 3px;
+            }
+            .nav-btn .nav-badge {
+                position: absolute;
+                top: 6px;
+                right: calc(50% - 20px);
+                background: var(--accent);
+                color: white;
+                font-size: 9px;
+                padding: 1px 5px;
+                border-radius: 8px;
+                min-width: 16px;
+                text-align: center;
+            }
+
+            /* Floating GPS button */
+            .mobile-gps-btn {
+                position: fixed;
+                bottom: 130px;
+                right: 10px;
+                width: 50px;
+                height: 50px;
+                background: var(--green);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                font-size: 22px;
+                box-shadow: 0 4px 15px rgba(6,214,160,0.4);
+                z-index: 1500;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .mobile-gps-btn:active { transform: scale(0.95); }
+
+            /* Hide desktop elements on mobile */
+            .leaflet-control-zoom { display: none !important; }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 380px) {
+            .stat .num { font-size: 16px; }
+            .start-opt { font-size: 8px; padding: 6px; min-width: 60px; }
+            .route-btns button { font-size: 9px; padding: 6px 4px; }
+            .filter { font-size: 9px; padding: 5px 8px; }
         }
     </style>
 </head>
@@ -237,6 +481,30 @@
         <p>Memuat ZUMA Indonesia...</p>
     </div>
     <div class="toast-wrap" id="toasts"></div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <button class="nav-btn active" onclick="mobileShowMap()">
+            <span class="nav-icon">🗺️</span>
+            <span>Peta</span>
+        </button>
+        <button class="nav-btn" onclick="mobileShowStores()">
+            <span class="nav-icon">🏪</span>
+            <span>Toko</span>
+        </button>
+        <button class="nav-btn" onclick="mobileShowRoute()">
+            <span class="nav-icon">📍</span>
+            <span>Rute</span>
+            <span class="nav-badge" id="mobileRouteBadge">0</span>
+        </button>
+        <button class="nav-btn" onclick="setStartMode('gps')">
+            <span class="nav-icon">📍</span>
+            <span>Lokasi</span>
+        </button>
+    </nav>
+
+    <!-- Mobile GPS Button -->
+    <button class="mobile-gps-btn" onclick="setStartMode('gps')" title="Lokasi Saya">📍</button>
 
     <div class="app">
         <aside class="sidebar">
@@ -1176,6 +1444,83 @@ function exportCSV() {
     a.download = `zuma-route-${new Date().toISOString().split('T')[0]}.csv`;
     a.click();
     toast('CSV diexport', 'success');
+}
+
+// Mobile Navigation Functions
+function mobileShowMap() {
+    document.querySelector('.sidebar').classList.remove('open');
+    updateMobileNav('map');
+    setTimeout(() => map.invalidateSize(), 100);
+}
+
+function mobileShowStores() {
+    document.querySelector('.sidebar').classList.add('open');
+    switchTab('stores');
+    updateMobileNav('stores');
+}
+
+function mobileShowRoute() {
+    document.querySelector('.sidebar').classList.add('open');
+    switchTab('route');
+    updateMobileNav('route');
+}
+
+function updateMobileNav(active) {
+    document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+        btn.classList.remove('active');
+        if ((active === 'map' && i === 0) ||
+            (active === 'stores' && i === 1) ||
+            (active === 'route' && i === 2)) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+function updateMobileRouteBadge() {
+    const badge = document.getElementById('mobileRouteBadge');
+    if (badge) {
+        badge.textContent = route.length;
+        badge.style.display = route.length > 0 ? 'block' : 'none';
+    }
+}
+
+// Override save to also update mobile badge
+const originalSave = save;
+save = function() {
+    originalSave();
+    updateMobileRouteBadge();
+}
+
+// Handle back gesture / swipe down to close sidebar on mobile
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.querySelector('.sidebar');
+    let startY = 0;
+
+    sidebar.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    sidebar.addEventListener('touchmove', (e) => {
+        const currentY = e.touches[0].clientY;
+        const diff = currentY - startY;
+
+        // If scrolled to top and swiping down
+        if (diff > 80 && sidebar.scrollTop <= 0) {
+            mobileShowMap();
+        }
+    }, { passive: true });
+
+    // Initialize mobile badge
+    updateMobileRouteBadge();
+});
+
+// Close sidebar when clicking on map marker on mobile
+const originalFocusStore = focusStore;
+focusStore = function(id) {
+    if (window.innerWidth <= 768) {
+        mobileShowMap();
+    }
+    originalFocusStore(id);
 }
     </script>
 </body>
