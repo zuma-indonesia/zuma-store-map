@@ -826,16 +826,18 @@ function setupEvents() {
         renderList(filter, document.getElementById('searchInput').value);
     }));
 
-    // Make chips sortable
-    new Sortable(document.getElementById('routeChips'), {
-        animation: 150,
-        filter: '.start',
-        onEnd: () => {
-            const chips = document.querySelectorAll('#routeChips .chip[data-id]');
-            route = Array.from(chips).map(c => parseInt(c.dataset.id));
-            updateRoute();
-        }
-    });
+    // Make chips sortable - ONLY on desktop
+    if (window.innerWidth > 768) {
+        new Sortable(document.getElementById('routeChips'), {
+            animation: 150,
+            filter: '.start',
+            onEnd: () => {
+                const chips = document.querySelectorAll('#routeChips .chip[data-id]');
+                route = Array.from(chips).map(c => parseInt(c.dataset.id));
+                updateRoute();
+            }
+        });
+    }
 }
 
 // Start Point Functions
@@ -1256,17 +1258,19 @@ function updateRoute() {
     // Draw route line
     drawRouteLine();
 
-    // Re-init sortable
-    new Sortable(document.getElementById('routeChips'), {
-        animation: 150,
-        filter: '.start',
-        onEnd: () => {
-            const chips = document.querySelectorAll('#routeChips .chip[data-id]');
-            route = Array.from(chips).map(c => parseInt(c.dataset.id));
-            updateRoute();
-            toast('Urutan diperbarui', 'success');
-        }
-    });
+    // Re-init sortable - ONLY on desktop (disable on mobile for better scroll)
+    if (window.innerWidth > 768) {
+        new Sortable(document.getElementById('routeChips'), {
+            animation: 150,
+            filter: '.start',
+            onEnd: () => {
+                const chips = document.querySelectorAll('#routeChips .chip[data-id]');
+                route = Array.from(chips).map(c => parseInt(c.dataset.id));
+                updateRoute();
+                toast('Urutan diperbarui', 'success');
+            }
+        });
+    }
 }
 
 // Actions
