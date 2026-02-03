@@ -867,8 +867,9 @@ function setStartMode(mode) {
     document.querySelectorAll('.start-opt').forEach(b => b.classList.remove('active'));
     document.querySelector(`.start-opt[onclick*="${mode}"]`)?.classList.add('active');
 
-    // Hide manual input by default
-    document.getElementById('startManualInput').style.display = 'none';
+    // Hide manual input by default (if exists)
+    const manualInput = document.getElementById('startManualInput');
+    if (manualInput) manualInput.style.display = 'none';
 
     // Exit click mode if active
     if (clickModeActive && mode !== 'click') {
@@ -1019,7 +1020,8 @@ function clearCustomStart() {
     document.getElementById('startCurrent').style.display = 'none';
     document.querySelectorAll('.start-opt').forEach(b => b.classList.remove('active'));
     document.querySelector('.start-opt[onclick*="auto"]').classList.add('active');
-    document.getElementById('startManualInput').style.display = 'none';
+    const manualEl = document.getElementById('startManualInput');
+    if (manualEl) manualEl.style.display = 'none';
 
     // Remove marker
     if (customStartMarker) {
