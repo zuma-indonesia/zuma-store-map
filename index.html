@@ -1511,26 +1511,8 @@ save = function() {
     updateMobileRouteBadge();
 }
 
-// Handle back gesture / swipe down to close sidebar on mobile
+// Initialize mobile badge on load
 document.addEventListener('DOMContentLoaded', () => {
-    const sidebar = document.querySelector('.sidebar');
-    let startY = 0;
-
-    sidebar.addEventListener('touchstart', (e) => {
-        startY = e.touches[0].clientY;
-    }, { passive: true });
-
-    sidebar.addEventListener('touchmove', (e) => {
-        const currentY = e.touches[0].clientY;
-        const diff = currentY - startY;
-
-        // If scrolled to top and swiping down
-        if (diff > 80 && sidebar.scrollTop <= 0) {
-            mobileShowMap();
-        }
-    }, { passive: true });
-
-    // Initialize mobile badge
     updateMobileRouteBadge();
 });
 
