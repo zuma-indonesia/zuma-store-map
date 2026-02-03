@@ -344,9 +344,8 @@
                 padding: 0;
             }
 
-            /* Sembunyikan stats dan start section di mobile */
+            /* Sembunyikan stats di mobile */
             .route-stats { display: none; }
-            .start-section { display: none; }
 
             /* Route header lebih simple */
             .route-header {
@@ -355,6 +354,18 @@
             }
             .route-title { margin-bottom: 0; }
             .route-title h3 { font-size: 14px; }
+
+            /* Start section simple - hanya 2 pilihan */
+            .start-section {
+                padding: 8px 10px;
+                background: var(--gray-100);
+            }
+            .start-label { display: none; }
+            .start-options { margin-bottom: 0; gap: 6px; }
+            .start-opt { flex: 1; justify-content: center; padding: 10px 8px; font-size: 11px; }
+            .start-opt:nth-child(3), .start-opt:nth-child(4) { display: none; }
+            #startManualInput { display: none !important; }
+            .start-current { margin-top: 6px; }
 
             /* Action buttons */
             .route-action { padding: 10px; }
