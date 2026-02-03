@@ -273,11 +273,22 @@
             .filters { gap: 4px; }
             .filter { padding: 6px 10px; font-size: 10px; }
 
-            /* Cards */
-            .card { padding: 12px; }
-            .card-name { font-size: 13px; }
-            .card-actions { flex-wrap: wrap; }
-            .btn { padding: 10px 12px; font-size: 11px; flex: 1; justify-content: center; text-align: center; }
+            /* Cards - compact seperti tabel */
+            .card {
+                padding: 8px 10px;
+                margin-bottom: 0;
+                border-radius: 0;
+                border: none;
+                border-bottom: 1px solid var(--gray-200);
+            }
+            .card:active { background: var(--gray-100); }
+            .card-head { margin-bottom: 2px; }
+            .card-name { font-size: 12px; }
+            .card-loc { display: none; }
+            .card-addr { display: none; }
+            .card-meta { margin-bottom: 4px; font-size: 10px; }
+            .card-actions { display: none; }
+            .badge { padding: 2px 6px; font-size: 8px; }
 
             /* Route Section */
             .route-header { padding: 12px; }
@@ -297,12 +308,22 @@
             .start-input { padding: 10px; font-size: 12px; }
             .start-current { padding: 10px; font-size: 10px; }
 
-            /* Chips */
-            .chip { padding: 10px 12px; font-size: 12px; }
+            /* Chips - compact seperti list */
+            .route-chips {
+                padding-bottom: 120px;
+                gap: 0;
+            }
+            .chip {
+                padding: 10px 12px;
+                font-size: 12px;
+                border-radius: 0;
+                background: white;
+                border-bottom: 1px solid var(--gray-200);
+            }
+            .chip:hover { background: white; }
             .chip .num { width: 24px; height: 24px; font-size: 11px; }
             .chip .dist { font-size: 10px; }
-            .chip .remove { width: 22px; height: 22px; }
-            .route-chips { padding-bottom: 120px; }
+            .chip .remove { width: 26px; height: 26px; font-size: 14px; }
 
             /* Fix scroll di mobile */
             .route-list-container {
