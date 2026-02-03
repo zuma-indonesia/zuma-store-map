@@ -22,7 +22,8 @@
         .sidebar { background: var(--white); box-shadow: var(--shadow); display: flex; flex-direction: column; z-index: 1000; overflow: hidden; }
         .header { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 16px; color: white; }
         .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-        .logo-icon { width: 40px; height: 40px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; }
+        .logo-icon { width: 40px; height: 40px; border-radius: 8px; overflow: hidden; }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
         .logo h1 { font-size: 18px; font-weight: 800; }
         .logo span { font-size: 10px; opacity: 0.8; display: block; }
 
@@ -574,7 +575,7 @@
         <aside class="sidebar">
             <div class="header">
                 <div class="logo">
-                    <div class="logo-icon">Z</div>
+                    <div class="logo-icon"><img src="logo.png" alt="ZUMA"></div>
                     <div>
                         <h1>ZUMA Indonesia</h1>
                         <span>Store Mapping & Visit Planner</span>
