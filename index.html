@@ -17,7 +17,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f5f7fa; min-height: 100vh; color: var(--primary); }
         .app { display: grid; grid-template-columns: 380px 1fr; height: 100vh; }
-        
+
         /* Sidebar */
         .sidebar { background: var(--white); box-shadow: var(--shadow); display: flex; flex-direction: column; z-index: 1000; overflow: hidden; }
         .header { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 16px; color: white; }
@@ -25,12 +25,12 @@
         .logo-icon { width: 40px; height: 40px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; }
         .logo h1 { font-size: 18px; font-weight: 800; }
         .logo span { font-size: 10px; opacity: 0.8; display: block; }
-        
+
         .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
         .stat { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; text-align: center; }
         .stat .num { font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; color: var(--gold); }
         .stat .lbl { font-size: 9px; text-transform: uppercase; opacity: 0.8; }
-        
+
         /* Tabs */
         .tabs { display: flex; border-bottom: 1px solid var(--gray-200); background: var(--gray-100); }
         .tab { flex: 1; padding: 14px; border: none; background: none; font-family: inherit; font-size: 12px; font-weight: 600; color: var(--gray-600); cursor: pointer; position: relative; transition: all 0.2s; }
@@ -38,29 +38,29 @@
         .tab.active { color: var(--accent); background: var(--white); }
         .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
         .tab .badge { background: var(--accent); color: white; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-left: 6px; }
-        
+
         .tab-content { display: none; flex: 1; overflow: hidden; flex-direction: column; }
         .tab-content.active { display: flex; }
-        
+
         /* Search */
         .search { padding: 12px; border-bottom: 1px solid var(--gray-200); }
         .search input { width: 100%; padding: 10px 14px 10px 38px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 12px; font-family: inherit; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236c757d' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 10px center/18px; transition: all 0.2s; }
         .search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(233,69,96,0.1); }
-        
+
         .filters { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
         .filter { padding: 6px 12px; border: 2px solid var(--gray-200); background: white; border-radius: 20px; font-size: 11px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; }
         .filter:hover { border-color: var(--gray-300); }
         .filter.active { background: var(--accent); color: white; border-color: var(--accent); }
-        
+
         /* Store List */
         .list { flex: 1; overflow-y: auto; padding: 8px; }
         .list::-webkit-scrollbar { width: 6px; }
         .list::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
-        
+
         .card { background: var(--white); border: 2px solid var(--gray-200); border-radius: 12px; padding: 14px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; }
         .card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(233,69,96,0.15); transform: translateY(-1px); }
         .card.in-route { border-color: var(--gold); background: linear-gradient(135deg, rgba(244,162,97,0.05), white); }
-        
+
         .card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
         .card-name { font-weight: 700; font-size: 14px; }
         .badge { padding: 4px 10px; border-radius: 6px; font-size: 9px; font-weight: 700; text-transform: uppercase; }
@@ -71,12 +71,12 @@
         .badge.pekanbaru { background: #fff8e1; color: #f57f17; }
         .badge.batam-kepri { background: #e8f5e9; color: #2e7d32; }
         .badge.sulawesi { background: #fce4ec; color: #c2185b; }
-        
+
         .card-loc { font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
         .card-addr { font-size: 11px; color: var(--gray-600); line-height: 1.4; margin-bottom: 8px; }
         .card-meta { display: flex; gap: 12px; font-size: 11px; color: var(--gray-600); margin-bottom: 10px; }
         .card-actions { display: flex; gap: 6px; }
-        
+
         .btn { padding: 8px 14px; border: none; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; }
         .btn-primary { background: var(--accent); color: white; }
         .btn-primary:hover { background: #d63850; transform: translateY(-1px); }
@@ -84,7 +84,7 @@
         .btn-gold:hover { background: #e8944f; }
         .btn-gray { background: var(--gray-100); color: var(--primary); }
         .btn-gray:hover { background: var(--gray-200); }
-        
+
         /* Route Section */
         .route-section { border-top: 1px solid var(--gray-200); background: var(--gray-100); }
         .route-header { padding: 14px; background: linear-gradient(135deg, var(--secondary), var(--primary)); color: white; }
@@ -93,17 +93,34 @@
         .route-btns { display: flex; gap: 6px; }
         .route-btns button { padding: 6px 10px; border: none; background: rgba(255,255,255,0.15); border-radius: 6px; color: white; cursor: pointer; font-size: 11px; font-family: inherit; transition: all 0.2s; }
         .route-btns button:hover { background: rgba(255,255,255,0.25); }
-        
+
         .route-stats { display: flex; gap: 20px; }
         .route-stat { display: flex; align-items: center; gap: 8px; }
         .route-stat .icon { font-size: 16px; }
         .route-stat .val { font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: var(--gold); }
         .route-stat .lbl { font-size: 10px; opacity: 0.8; }
-        
+
+        /* Start Point Selector */
+        .start-section { padding: 12px; background: var(--gray-100); border-bottom: 1px solid var(--gray-200); }
+        .start-label { font-size: 11px; font-weight: 700; color: var(--gray-600); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .start-options { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+        .start-opt { padding: 6px 10px; border: 2px solid var(--gray-200); background: white; border-radius: 8px; font-size: 10px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; display: flex; align-items: center; gap: 4px; }
+        .start-opt:hover { border-color: var(--accent); }
+        .start-opt.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .start-input-wrap { display: flex; gap: 6px; }
+        .start-input { flex: 1; padding: 8px 12px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 11px; font-family: inherit; }
+        .start-input:focus { outline: none; border-color: var(--accent); }
+        .start-input::placeholder { color: var(--gray-600); }
+        .start-current { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: linear-gradient(135deg, var(--green), #05c491); color: white; border-radius: 8px; font-size: 11px; font-weight: 600; margin-top: 8px; }
+        .start-current .coords { font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.9; }
+        .start-current .clear-btn { margin-left: auto; background: rgba(255,255,255,0.2); border: none; color: white; width: 20px; height: 20px; border-radius: 50%; cursor: pointer; font-size: 10px; }
+        .start-current .clear-btn:hover { background: rgba(255,255,255,0.3); }
+
         .route-chips { display: flex; flex-direction: column; gap: 8px; }
         .chip { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--gray-100); border-radius: 10px; font-size: 13px; font-weight: 600; cursor: grab; transition: all 0.2s; }
         .chip:hover { background: var(--gray-200); }
-        .chip.start { background: linear-gradient(135deg, var(--accent), #d63850); color: white; cursor: default; }
+        .chip.start { background: linear-gradient(135deg, var(--accent), #d63850); color: white; cursor: pointer; }
+        .chip.start.custom { background: linear-gradient(135deg, var(--green), #05c491); }
         .chip .num { width: 28px; height: 28px; background: var(--gold); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
         .chip .info { flex: 1; }
         .chip .name { font-weight: 700; }
@@ -111,7 +128,7 @@
         .chip.start .dist { color: rgba(255,255,255,0.8); }
         .chip .remove { width: 24px; height: 24px; background: rgba(0,0,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px; flex-shrink: 0; transition: all 0.2s; }
         .chip .remove:hover { background: var(--accent); color: white; }
-        
+
         .route-list-container { flex: 1; overflow-y: auto; padding: 12px; background: white; }
         .route-action { padding: 12px; border-top: 1px solid var(--gray-200); }
         .btn-full { width: 100%; padding: 14px; border: none; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; margin-bottom: 8px; }
@@ -120,44 +137,46 @@
         .btn-full.primary:hover { background: #e8944f; transform: translateY(-1px); }
         .btn-full.secondary { background: var(--gray-100); color: var(--primary); }
         .btn-full.secondary:hover { background: var(--gray-200); }
-        
+
         /* Map */
         .map-wrap { position: relative; }
         #map { width: 100%; height: 100%; }
-        
+
         /* Detail Panel */
         .detail-panel { position: absolute; top: 14px; left: 14px; z-index: 1000; background: white; border-radius: 12px; box-shadow: var(--shadow); width: 300px; max-height: 70vh; overflow: hidden; display: none; }
         .detail-panel.visible { display: block; animation: slideIn 0.3s ease; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
-        
+
         .detail-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--gray-200); }
         .detail-header h4 { font-size: 14px; font-weight: 700; }
         .detail-close { width: 28px; height: 28px; border: none; background: var(--gray-100); border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.2s; }
         .detail-close:hover { background: var(--accent); color: white; }
-        
+
         .detail-list { padding: 8px; max-height: calc(70vh - 60px); overflow-y: auto; }
         .detail-item { display: flex; gap: 12px; padding: 12px; border-radius: 10px; margin-bottom: 6px; background: var(--gray-100); transition: all 0.2s; cursor: pointer; }
         .detail-item:hover { background: var(--gray-200); }
         .detail-item.start { background: linear-gradient(135deg, rgba(233,69,96,0.1), rgba(233,69,96,0.05)); }
-        
+        .detail-item.start.custom { background: linear-gradient(135deg, rgba(6,214,160,0.1), rgba(6,214,160,0.05)); }
+
         .detail-num { width: 32px; height: 32px; background: var(--gold); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
         .detail-num.start { background: var(--accent); color: white; }
-        
+        .detail-num.start.custom { background: var(--green); }
+
         .detail-info { flex: 1; min-width: 0; }
         .detail-name { font-weight: 700; font-size: 13px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .detail-sub { font-size: 10px; color: var(--gray-600); }
         .detail-from { font-size: 10px; color: var(--accent); font-weight: 600; margin-top: 4px; }
-        
+
         .detail-dist { text-align: right; flex-shrink: 0; }
         .detail-dist .km { font-family: 'Space Mono', monospace; font-size: 15px; font-weight: 700; color: var(--accent); }
         .detail-dist .time { font-size: 10px; color: var(--gray-600); }
-        
+
         /* Map Controls */
         .map-ctrls { position: absolute; top: 14px; right: 14px; z-index: 1000; display: flex; flex-direction: column; gap: 6px; }
         .map-btn { width: 40px; height: 40px; background: white; border: none; border-radius: 10px; box-shadow: var(--shadow); cursor: pointer; font-size: 18px; transition: all 0.2s; }
         .map-btn:hover { transform: scale(1.1); }
         .map-btn.active { background: var(--accent); }
-        
+
         /* Legend */
         .legend { position: absolute; bottom: 20px; right: 14px; z-index: 1000; background: white; padding: 14px; border-radius: 12px; box-shadow: var(--shadow); }
         .legend-title { font-size: 11px; font-weight: 700; margin-bottom: 10px; }
@@ -170,7 +189,7 @@
         .legend-dot.pekanbaru { background: var(--gold); }
         .legend-dot.batam { background: var(--green); }
         .legend-dot.sulawesi { background: var(--accent); }
-        
+
         /* Popup */
         .leaflet-popup-content-wrapper { border-radius: 12px; padding: 0; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
         .leaflet-popup-content { margin: 0; min-width: 250px; }
@@ -184,23 +203,29 @@
         .popup-dist .value { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--accent); }
         .popup-btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit; background: var(--gold); color: var(--primary); transition: all 0.2s; }
         .popup-btn:hover { background: #e8944f; }
-        
+
         /* Toast */
         .toast-wrap { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; }
         .toast { background: var(--primary); color: white; padding: 12px 20px; border-radius: 10px; font-size: 13px; margin-bottom: 8px; animation: toastIn 0.3s; box-shadow: var(--shadow); }
         .toast.success { background: var(--green); }
         .toast.error { background: var(--accent); }
         @keyframes toastIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
+
         /* Loading */
         .loading { position: fixed; inset: 0; background: rgba(26,26,46,0.95); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; transition: opacity 0.5s; }
         .loading.hidden { opacity: 0; pointer-events: none; }
         .spinner { width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.1); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .loading p { color: white; margin-top: 16px; font-size: 14px; }
-        
+
         .leaflet-routing-container { display: none !important; }
-        
+
+        /* Click mode indicator */
+        .click-mode-active #map { cursor: crosshair !important; }
+        .click-indicator { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--accent); color: white; padding: 12px 20px; border-radius: 10px; font-size: 13px; font-weight: 600; z-index: 2000; animation: pulse 1.5s infinite; display: none; }
+        .click-mode-active .click-indicator { display: block; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
         @media (max-width: 900px) {
             .app { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
         }
@@ -212,7 +237,7 @@
         <p>Memuat ZUMA Indonesia...</p>
     </div>
     <div class="toast-wrap" id="toasts"></div>
-    
+
     <div class="app">
         <aside class="sidebar">
             <div class="header">
@@ -229,12 +254,12 @@
                     <div class="stat"><div class="num">15</div><div class="lbl">Kota</div></div>
                 </div>
             </div>
-            
+
             <div class="tabs">
                 <button class="tab active" onclick="switchTab('stores')">🏪 Daftar Toko</button>
                 <button class="tab" onclick="switchTab('route')">🗺️ Rute<span class="badge" id="routeBadge">0</span></button>
             </div>
-            
+
             <div class="tab-content active" id="tab-stores">
                 <div class="search">
                     <input type="text" id="searchInput" placeholder="Cari toko, kota, atau alamat...">
@@ -251,7 +276,7 @@
                 </div>
                 <div class="list" id="storeList"></div>
             </div>
-            
+
             <div class="tab-content" id="tab-route">
                 <div class="route-header">
                     <div class="route-title">
@@ -286,6 +311,36 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Start Point Selector -->
+                <div class="start-section">
+                    <div class="start-label">📍 Titik Mulai (Hotel/Lokasi Anda)</div>
+                    <div class="start-options">
+                        <button class="start-opt active" onclick="setStartMode('auto')">🔄 Auto (Bandara)</button>
+                        <button class="start-opt" onclick="setStartMode('gps')">📍 Lokasi Saya</button>
+                        <button class="start-opt" onclick="setStartMode('click')">🖱️ Klik Peta</button>
+                        <button class="start-opt" onclick="setStartMode('manual')">✏️ Manual</button>
+                    </div>
+                    <div id="startManualInput" style="display:none;">
+                        <div class="start-input-wrap">
+                            <input type="text" class="start-input" id="startName" placeholder="Nama lokasi (cth: Hotel Ibis)">
+                        </div>
+                        <div class="start-input-wrap" style="margin-top:6px;">
+                            <input type="text" class="start-input" id="startLat" placeholder="Latitude" style="width:48%">
+                            <input type="text" class="start-input" id="startLng" placeholder="Longitude" style="width:48%">
+                            <button class="btn btn-primary" onclick="applyManualStart()" style="padding:8px 12px;">OK</button>
+                        </div>
+                    </div>
+                    <div id="startCurrent" class="start-current" style="display:none;">
+                        <span>📍</span>
+                        <div>
+                            <div id="startCurrentName">Hotel</div>
+                            <div class="coords" id="startCurrentCoords">-8.123, 115.456</div>
+                        </div>
+                        <button class="clear-btn" onclick="clearCustomStart()">✕</button>
+                    </div>
+                </div>
+
                 <div class="route-list-container">
                     <div class="route-chips" id="routeChips">
                         <div class="chip start">✈️ Bandara</div>
@@ -297,10 +352,11 @@
                 </div>
             </div>
         </aside>
-        
+
         <main class="map-wrap">
             <div id="map"></div>
-            
+            <div class="click-indicator">Klik di peta untuk set titik mulai...</div>
+
             <div class="detail-panel" id="detailPanel">
                 <div class="detail-header">
                     <h4>📋 Detail Rute</h4>
@@ -308,16 +364,16 @@
                 </div>
                 <div class="detail-list" id="detailList"></div>
             </div>
-            
+
             <div class="map-ctrls">
                 <button class="map-btn" onclick="fitAll()" title="Lihat Semua">🗺️</button>
                 <button class="map-btn" onclick="focusBranch('Bali')" title="Bali">🏝️</button>
                 <button class="map-btn" onclick="focusBranch('Jawa Timur')" title="Jawa Timur">🏭</button>
                 <button class="map-btn" onclick="focusBranch('Jakarta')" title="Jakarta">🏙️</button>
                 <button class="map-btn" onclick="toggleSat()" id="satBtn" title="Satelit">🛰️</button>
-                <button class="map-btn" onclick="openGMaps()" title="Google Maps">📍</button>
+                <button class="map-btn" onclick="setStartMode('gps')" title="Lokasi Saya">📍</button>
             </div>
-            
+
             <div class="legend">
                 <div class="legend-title">Cabang ZUMA</div>
                 <div class="legend-item"><div class="legend-dot bali"></div>Bali (29)</div>
@@ -406,6 +462,12 @@ let map, markers = [], routeCtrl = null, routeLines = [], satLayer, defLayer, is
 let filter = 'all';
 let route = []; // Simple array of store IDs
 
+// Custom start point state
+let customStart = null; // { name: "Hotel XYZ", lat: -8.123, lng: 115.456 }
+let startMode = 'auto'; // 'auto', 'gps', 'click', 'manual'
+let clickModeActive = false;
+let customStartMarker = null;
+
 // Init
 document.addEventListener('DOMContentLoaded', init);
 
@@ -423,6 +485,25 @@ function initMap() {
     defLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(map);
     satLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19 });
     addMarkers();
+
+    // Map click handler for setting custom start
+    map.on('click', onMapClick);
+}
+
+function onMapClick(e) {
+    if (!clickModeActive) return;
+
+    const lat = e.latlng.lat;
+    const lng = e.latlng.lng;
+
+    // Set custom start point
+    setCustomStart('Lokasi Dipilih', lat, lng);
+
+    // Exit click mode
+    clickModeActive = false;
+    document.querySelector('.app').classList.remove('click-mode-active');
+
+    toast('Titik mulai diset!', 'success');
 }
 
 function setupEvents() {
@@ -433,7 +514,7 @@ function setupEvents() {
         filter = b.dataset.f;
         renderList(filter, document.getElementById('searchInput').value);
     }));
-    
+
     // Make chips sortable
     new Sortable(document.getElementById('routeChips'), {
         animation: 150,
@@ -444,6 +525,150 @@ function setupEvents() {
             updateRoute();
         }
     });
+}
+
+// Start Point Functions
+function setStartMode(mode) {
+    startMode = mode;
+
+    // Update UI
+    document.querySelectorAll('.start-opt').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.start-opt[onclick*="${mode}"]`)?.classList.add('active');
+
+    // Hide manual input by default
+    document.getElementById('startManualInput').style.display = 'none';
+
+    // Exit click mode if active
+    if (clickModeActive && mode !== 'click') {
+        clickModeActive = false;
+        document.querySelector('.app').classList.remove('click-mode-active');
+    }
+
+    switch(mode) {
+        case 'auto':
+            clearCustomStart();
+            break;
+        case 'gps':
+            getGPSLocation();
+            break;
+        case 'click':
+            enableClickMode();
+            break;
+        case 'manual':
+            document.getElementById('startManualInput').style.display = 'block';
+            break;
+    }
+}
+
+function getGPSLocation() {
+    if (!navigator.geolocation) {
+        toast('GPS tidak didukung di browser ini', 'error');
+        return;
+    }
+
+    toast('Mencari lokasi...', '');
+
+    navigator.geolocation.getCurrentPosition(
+        (pos) => {
+            const lat = pos.coords.latitude;
+            const lng = pos.coords.longitude;
+            setCustomStart('Lokasi Saya', lat, lng);
+            map.setView([lat, lng], 14);
+            toast('Lokasi ditemukan!', 'success');
+        },
+        (err) => {
+            toast('Gagal mendapatkan lokasi: ' + err.message, 'error');
+        },
+        { enableHighAccuracy: true, timeout: 10000 }
+    );
+}
+
+function enableClickMode() {
+    clickModeActive = true;
+    document.querySelector('.app').classList.add('click-mode-active');
+    toast('Klik di peta untuk memilih titik mulai', '');
+}
+
+function applyManualStart() {
+    const name = document.getElementById('startName').value || 'Lokasi Custom';
+    const lat = parseFloat(document.getElementById('startLat').value);
+    const lng = parseFloat(document.getElementById('startLng').value);
+
+    if (isNaN(lat) || isNaN(lng)) {
+        toast('Masukkan koordinat yang valid', 'error');
+        return;
+    }
+
+    setCustomStart(name, lat, lng);
+    map.setView([lat, lng], 14);
+    toast('Titik mulai diset!', 'success');
+}
+
+function setCustomStart(name, lat, lng) {
+    customStart = { name, lat, lng };
+
+    // Update UI
+    document.getElementById('startCurrent').style.display = 'flex';
+    document.getElementById('startCurrentName').textContent = name;
+    document.getElementById('startCurrentCoords').textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+
+    // Add/update marker on map
+    if (customStartMarker) {
+        map.removeLayer(customStartMarker);
+    }
+
+    const icon = L.divIcon({
+        className: '',
+        html: `<div style="background:#06d6a0;border:3px solid white;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px;box-shadow:0 4px 12px rgba(0,0,0,0.3)">📍</div>`,
+        iconSize: [36, 36], iconAnchor: [18, 18]
+    });
+
+    customStartMarker = L.marker([lat, lng], { icon }).addTo(map)
+        .bindPopup(`<div class="popup-head" style="background:linear-gradient(135deg,#06d6a0,#05c491)"><h4>📍 ${name}</h4><span>Titik Mulai Custom</span></div><div class="popup-body"><p class="popup-addr">${lat.toFixed(6)}, ${lng.toFixed(6)}</p></div>`);
+
+    // Update route display
+    updateRoute();
+    save();
+}
+
+function clearCustomStart() {
+    customStart = null;
+    startMode = 'auto';
+
+    // Update UI
+    document.getElementById('startCurrent').style.display = 'none';
+    document.querySelectorAll('.start-opt').forEach(b => b.classList.remove('active'));
+    document.querySelector('.start-opt[onclick*="auto"]').classList.add('active');
+    document.getElementById('startManualInput').style.display = 'none';
+
+    // Remove marker
+    if (customStartMarker) {
+        map.removeLayer(customStartMarker);
+        customStartMarker = null;
+    }
+
+    // Exit click mode
+    clickModeActive = false;
+    document.querySelector('.app').classList.remove('click-mode-active');
+
+    updateRoute();
+    save();
+}
+
+// Get current start point (custom or auto from airport)
+function getStartPoint() {
+    if (customStart) {
+        return customStart;
+    }
+
+    // Auto: get airport based on first store in route
+    if (route.length > 0) {
+        const first = stores.find(s => s.id === route[0]);
+        const ref = refs[first?.branch];
+        if (ref) return ref;
+    }
+
+    return null;
 }
 
 // Utils
@@ -461,7 +686,7 @@ function toast(msg, type='') {
     setTimeout(() => el.remove(), 3000);
 }
 
-function getShortName(name) { return name.replace('Zuma ', ''); }
+function getShortName(name) { return name.replace('Zuma ', '').replace('Bandara ', ''); }
 function getBadgeClass(branch) { return branch.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-'); }
 
 // Map
@@ -488,7 +713,7 @@ function addMarkers() {
         L.marker([pt.lat, pt.lng], { icon }).addTo(map)
             .bindPopup(`<div class="popup-head"><h4>✈️ ${pt.name}</h4><span>Titik Referensi ${br}</span></div>`);
     });
-    
+
     // Add store markers
     stores.forEach(s => {
         const inRoute = route.includes(s.id);
@@ -510,18 +735,18 @@ function updateMarkers() {
 }
 
 function showStorePopup(s) {
-    const ref = refs[s.branch];
-    const distFromAirport = ref ? dist(ref.lat, ref.lng, s.lat, s.lng) : 0;
+    const startPt = getStartPoint();
+    const distFromStart = startPt ? dist(startPt.lat, startPt.lng, s.lat, s.lng) : 0;
     const inRoute = route.includes(s.id);
-    
+
     // Get distance from previous store in route
     let distFromPrev = null;
     let prevName = null;
     if (inRoute) {
         const idx = route.indexOf(s.id);
-        if (idx === 0 && ref) {
-            distFromPrev = distFromAirport;
-            prevName = getShortName(ref.name);
+        if (idx === 0 && startPt) {
+            distFromPrev = distFromStart;
+            prevName = getShortName(startPt.name);
         } else if (idx > 0) {
             const prevStore = stores.find(x => x.id === route[idx - 1]);
             if (prevStore) {
@@ -530,7 +755,9 @@ function showStorePopup(s) {
             }
         }
     }
-    
+
+    const startLabel = customStart ? 'Titik Mulai' : 'Bandara';
+
     const popup = L.popup({ maxWidth: 280 })
         .setLatLng([s.lat, s.lng])
         .setContent(`
@@ -542,7 +769,7 @@ function showStorePopup(s) {
                 <p class="popup-addr">${s.address}</p>
                 <div class="popup-dist">
                     <span class="icon">📍</span>
-                    <span>Jarak dari Bandara: <span class="value">${distFromAirport.toFixed(1)} km</span></span>
+                    <span>Jarak dari ${startLabel}: <span class="value">${distFromStart.toFixed(1)} km</span></span>
                 </div>
                 ${distFromPrev !== null ? `
                 <div class="popup-dist" style="background:#fff3e0;">
@@ -568,20 +795,19 @@ function clearRouteLines() {
 function drawRouteLine() {
     clearRouteLines();
     if (route.length === 0) return;
-    
-    const first = stores.find(s => s.id === route[0]);
-    const ref = refs[first?.branch];
-    if (!ref) return;
-    
-    const points = [[ref.lat, ref.lng]];
+
+    const startPt = getStartPoint();
+    if (!startPt) return;
+
+    const points = [[startPt.lat, startPt.lng]];
     route.forEach(id => {
         const s = stores.find(x => x.id === id);
         if (s) points.push([s.lat, s.lng]);
     });
-    
+
     // Draw polyline
     const line = L.polyline(points, {
-        color: '#e94560',
+        color: customStart ? '#06d6a0' : '#e94560',
         weight: 4,
         opacity: 0.8,
         dashArray: '10, 10'
@@ -604,12 +830,14 @@ function renderList(f = 'all', q = '') {
         list = list.filter(s => s.name.toLowerCase().includes(t) || s.address.toLowerCase().includes(t) || s.city.toLowerCase().includes(t));
     }
 
+    const startPt = getStartPoint();
+
     el.innerHTML = list.map(s => {
-        const ref = refs[s.branch];
-        const d = ref ? dist(ref.lat, ref.lng, s.lat, s.lng) : 0;
+        const d = startPt ? dist(startPt.lat, startPt.lng, s.lat, s.lng) : 0;
         const inRoute = route.includes(s.id);
         const routeIdx = route.indexOf(s.id);
         const badgeCls = getBadgeClass(s.branch);
+        const distLabel = customStart ? 'titik mulai' : 'bandara';
 
         return `
         <div class="card ${inRoute ? 'in-route' : ''}" onclick="focusStore(${s.id})">
@@ -620,7 +848,7 @@ function renderList(f = 'all', q = '') {
             <div class="card-loc">${s.city}</div>
             <p class="card-addr">${s.address}</p>
             <div class="card-meta">
-                <span>🚗 ${d.toFixed(1)} km dari bandara</span>
+                <span>🚗 ${d.toFixed(1)} km dari ${distLabel}</span>
             </div>
             <div class="card-actions">
                 <button class="btn btn-gray" onclick="event.stopPropagation(); focusStore(${s.id})">👁️ Lihat</button>
@@ -633,45 +861,45 @@ function renderList(f = 'all', q = '') {
 }
 
 function updateRoute() {
+    const startPt = getStartPoint();
+    const isCustom = !!customStart;
+
     // Update chips with detailed info
     const chipsEl = document.getElementById('routeChips');
-    let chipsHtml = `
-        <div class="chip start">
-            <span class="num">✈</span>
-            <div class="info">
-                <div class="name">Bandara</div>
-                <div class="dist">Titik Mulai</div>
-            </div>
-        </div>`;
-    
-    let prevLat = null, prevLng = null, prevName = 'Bandara';
-    
-    // Get reference point from first store
-    if (route.length > 0) {
-        const first = stores.find(s => s.id === route[0]);
-        const ref = refs[first?.branch];
-        if (ref) {
-            prevLat = ref.lat;
-            prevLng = ref.lng;
-            chipsHtml = `
-                <div class="chip start">
-                    <span class="num">✈</span>
-                    <div class="info">
-                        <div class="name">${ref.name}</div>
-                        <div class="dist">Titik Mulai</div>
-                    </div>
-                </div>`;
-        }
+    let chipsHtml = '';
+
+    if (startPt) {
+        const icon = isCustom ? '📍' : '✈';
+        const chipClass = isCustom ? 'chip start custom' : 'chip start';
+        chipsHtml = `
+            <div class="${chipClass}" onclick="switchTab('route')">
+                <span class="num">${icon}</span>
+                <div class="info">
+                    <div class="name">${startPt.name}</div>
+                    <div class="dist">Titik Mulai${isCustom ? ' (Custom)' : ''}</div>
+                </div>
+            </div>`;
+    } else {
+        chipsHtml = `
+            <div class="chip start">
+                <span class="num">✈</span>
+                <div class="info">
+                    <div class="name">Bandara</div>
+                    <div class="dist">Titik Mulai</div>
+                </div>
+            </div>`;
     }
-    
+
+    let prevLat = startPt?.lat, prevLng = startPt?.lng, prevName = startPt ? getShortName(startPt.name) : 'Bandara';
+
     route.forEach((id, idx) => {
         const s = stores.find(x => x.id === id);
         if (s) {
             let distFromPrev = 0;
-            if (prevLat !== null) {
+            if (prevLat !== null && prevLat !== undefined) {
                 distFromPrev = dist(prevLat, prevLng, s.lat, s.lng);
             }
-            
+
             chipsHtml += `
                 <div class="chip" data-id="${s.id}">
                     <span class="num">${idx + 1}</span>
@@ -681,48 +909,42 @@ function updateRoute() {
                     </div>
                     <span class="remove" onclick="event.stopPropagation(); rmRoute(${s.id})">✕</span>
                 </div>`;
-            
+
             prevLat = s.lat;
             prevLng = s.lng;
             prevName = getShortName(s.name);
         }
     });
-    
+
     chipsEl.innerHTML = chipsHtml;
-    
+
     // Update stats
     let totalDist = 0;
-    prevLat = null;
-    prevLng = null;
-    
-    if (route.length > 0) {
-        const first = stores.find(s => s.id === route[0]);
-        const ref = refs[first?.branch];
-        if (ref) { prevLat = ref.lat; prevLng = ref.lng; }
-    }
-    
+    prevLat = startPt?.lat;
+    prevLng = startPt?.lng;
+
     route.forEach(id => {
         const s = stores.find(x => x.id === id);
-        if (s && prevLat !== null) {
+        if (s && prevLat !== null && prevLat !== undefined) {
             totalDist += dist(prevLat, prevLng, s.lat, s.lng);
             prevLat = s.lat;
             prevLng = s.lng;
         }
     });
-    
+
     const totalTime = (totalDist / 40) + (route.length * 0.25);
-    
+
     document.getElementById('rCount').textContent = route.length;
     document.getElementById('rDist').textContent = totalDist.toFixed(0);
     document.getElementById('rTime').textContent = totalTime.toFixed(1);
     document.getElementById('routeBadge').textContent = route.length;
-    
+
     // Update markers
     updateMarkers();
-    
+
     // Draw route line
     drawRouteLine();
-    
+
     // Re-init sortable
     new Sortable(document.getElementById('routeChips'), {
         animation: 150,
@@ -739,7 +961,7 @@ function updateRoute() {
 // Actions
 function switchTab(t) {
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-    event.target.classList.add('active');
+    document.querySelector(`.tab[onclick*="${t}"]`).classList.add('active');
     document.querySelectorAll('.tab-content').forEach(x => x.classList.remove('active'));
     document.getElementById(`tab-${t}`).classList.add('active');
 }
@@ -773,15 +995,14 @@ function clearRoute() {
 
 function autoSort() {
     if (route.length < 2) { toast('Minimal 2 toko', 'error'); return; }
-    
-    const first = stores.find(s => s.id === route[0]);
-    const ref = refs[first?.branch];
-    if (!ref) return;
-    
+
+    const startPt = getStartPoint();
+    if (!startPt) { toast('Titik mulai tidak ditemukan', 'error'); return; }
+
     const optimized = [];
     const remaining = [...route];
-    let lat = ref.lat, lng = ref.lng;
-    
+    let lat = startPt.lat, lng = startPt.lng;
+
     while (remaining.length) {
         let nearIdx = 0, nearDist = Infinity;
         remaining.forEach((id, i) => {
@@ -796,7 +1017,7 @@ function autoSort() {
         const ns = stores.find(x => x.id === nid);
         if (ns) { lat = ns.lat; lng = ns.lng; }
     }
-    
+
     route = optimized;
     render();
     save();
@@ -805,19 +1026,18 @@ function autoSort() {
 
 function calcRoute() {
     if (!route.length) { toast('Tambahkan toko dulu', 'error'); return; }
-    
+
     clearRouteLines();
-    
-    const first = stores.find(s => s.id === route[0]);
-    const ref = refs[first?.branch];
-    if (!ref) return;
-    
-    const waypoints = [L.latLng(ref.lat, ref.lng)];
+
+    const startPt = getStartPoint();
+    if (!startPt) { toast('Titik mulai tidak ditemukan', 'error'); return; }
+
+    const waypoints = [L.latLng(startPt.lat, startPt.lng)];
     route.forEach(id => {
         const s = stores.find(x => x.id === id);
         if (s) waypoints.push(L.latLng(s.lat, s.lng));
     });
-    
+
     routeCtrl = L.Routing.control({
         waypoints,
         routeWhileDragging: false,
@@ -825,40 +1045,43 @@ function calcRoute() {
         show: false,
         lineOptions: {
             styles: [
-                { color: '#e94560', opacity: 0.9, weight: 5 },
+                { color: customStart ? '#06d6a0' : '#e94560', opacity: 0.9, weight: 5 },
                 { color: '#f4a261', opacity: 1, weight: 3 }
             ]
         },
         createMarker: () => null
     }).addTo(map);
-    
+
     routeCtrl.on('routesfound', e => {
         const r = e.routes[0];
         document.getElementById('rDist').textContent = (r.summary.totalDistance / 1000).toFixed(0);
         document.getElementById('rTime').textContent = (r.summary.totalTime / 3600).toFixed(1);
         showDetailPanel();
     });
-    
+
     map.fitBounds(L.latLngBounds(waypoints), { padding: [80, 80] });
     toast('Rute dihitung', 'success');
 }
 
 function showDetailPanel() {
-    const first = stores.find(s => s.id === route[0]);
-    const ref = refs[first?.branch];
-    
+    const startPt = getStartPoint();
+    const isCustom = !!customStart;
+
+    const iconClass = isCustom ? 'start custom' : 'start';
+    const icon = isCustom ? '📍' : '✈';
+
     let html = `
-        <div class="detail-item start" onclick="map.setView([${ref?.lat}, ${ref?.lng}], 14)">
-            <div class="detail-num start">✈</div>
+        <div class="detail-item ${iconClass}" onclick="map.setView([${startPt?.lat}, ${startPt?.lng}], 14)">
+            <div class="detail-num ${iconClass}">${icon}</div>
             <div class="detail-info">
-                <div class="detail-name">${ref?.name || 'Bandara'}</div>
-                <div class="detail-sub">Titik Mulai</div>
+                <div class="detail-name">${startPt?.name || 'Bandara'}</div>
+                <div class="detail-sub">Titik Mulai${isCustom ? ' (Custom)' : ''}</div>
             </div>
             <div class="detail-dist"><div class="km">-</div></div>
         </div>`;
-    
-    let prevLat = ref?.lat, prevLng = ref?.lng, prevName = getShortName(ref?.name || 'Bandara');
-    
+
+    let prevLat = startPt?.lat, prevLng = startPt?.lng, prevName = getShortName(startPt?.name || 'Bandara');
+
     route.forEach((id, idx) => {
         const s = stores.find(x => x.id === id);
         if (s) {
@@ -882,7 +1105,7 @@ function showDetailPanel() {
             prevName = getShortName(s.name);
         }
     });
-    
+
     document.getElementById('detailList').innerHTML = html;
     document.getElementById('detailPanel').classList.add('visible');
 }
@@ -903,28 +1126,41 @@ function toggleSat() { if (isSat) { map.removeLayer(satLayer); map.addLayer(defL
 
 function openGMaps() {
     if (!route.length) { toast('Tambahkan toko dulu', 'error'); return; }
-    const first = stores.find(s => s.id === route[0]);
-    const ref = refs[first?.branch];
+    const startPt = getStartPoint();
     let url = 'https://www.google.com/maps/dir/';
-    if (ref) url += `${ref.lat},${ref.lng}/`;
+    if (startPt) url += `${startPt.lat},${startPt.lng}/`;
     route.forEach(id => { const s = stores.find(x => x.id === id); if (s) url += `${s.lat},${s.lng}/`; });
     window.open(url, '_blank');
 }
 
 // Storage
-function save() { localStorage.setItem('zumaRoute', JSON.stringify(route)); }
-function load() { try { const r = localStorage.getItem('zumaRoute'); if (r) route = JSON.parse(r); } catch(e){} }
+function save() {
+    localStorage.setItem('zumaRoute', JSON.stringify(route));
+    if (customStart) {
+        localStorage.setItem('zumaCustomStart', JSON.stringify(customStart));
+    } else {
+        localStorage.removeItem('zumaCustomStart');
+    }
+}
+
+function load() {
+    try {
+        const r = localStorage.getItem('zumaRoute');
+        if (r) route = JSON.parse(r);
+
+        const cs = localStorage.getItem('zumaCustomStart');
+        if (cs) {
+            const parsed = JSON.parse(cs);
+            setCustomStart(parsed.name, parsed.lat, parsed.lng);
+        }
+    } catch(e){}
+}
 
 function exportCSV() {
+    const startPt = getStartPoint();
     let csv = 'No,Nama Toko,Area,Kota,Alamat,Jarak dari Sebelumnya,Dari\n';
-    let prevLat = null, prevLng = null, prevName = 'Bandara';
-    
-    if (route.length) {
-        const first = stores.find(s => s.id === route[0]);
-        const ref = refs[first?.branch];
-        if (ref) { prevLat = ref.lat; prevLng = ref.lng; prevName = ref.name; }
-    }
-    
+    let prevLat = startPt?.lat, prevLng = startPt?.lng, prevName = startPt?.name || 'Bandara';
+
     route.forEach((id, i) => {
         const s = stores.find(x => x.id === id);
         if (s) {
@@ -933,7 +1169,7 @@ function exportCSV() {
             prevLat = s.lat; prevLng = s.lng; prevName = s.name;
         }
     });
-    
+
     const blob = new Blob([csv], { type: 'text/csv' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
