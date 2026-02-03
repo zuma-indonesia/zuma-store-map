@@ -1002,7 +1002,13 @@ function getStartPoint() {
         if (ref) return ref;
     }
 
-    return null;
+    // Default: based on current filter or Bali
+    if (filter !== 'all' && refs[filter]) {
+        return refs[filter];
+    }
+
+    // Default to Bali
+    return refs["Bali"];
 }
 
 // Utils
@@ -1171,23 +1177,23 @@ function renderList(f = 'all', q = '') {
         const inRoute = route.includes(s.id);
         const routeIdx = route.indexOf(s.id);
         const badgeCls = getBadgeClass(s.branch);
-        const distLabel = customStart ? 'titik mulai' : 'bandara';
+        const distLabel = customStart ? 'lokasi kamu' : 'bandara';
 
         return `
-        <div class="card ${inRoute ? 'in-route' : ''}" onclick="focusStore(${s.id})">
+        <div class="card ${inRoute ? 'in-route' : ''}" onclick="${inRoute ? `rmRoute(${s.id})` : `addToRoute(${s.id})`}">
             <div class="card-head">
-                <span class="card-name">${inRoute ? `<span style="color:var(--gold);margin-right:4px">#${routeIdx+1}</span>` : ''}${s.name}</span>
+                <span class="card-name">${inRoute ? `<span style="color:var(--gold);margin-right:4px">✓</span>` : ''}${s.name}</span>
                 <span class="badge ${badgeCls}">${s.area}</span>
             </div>
             <div class="card-loc">${s.city}</div>
             <p class="card-addr">${s.address}</p>
             <div class="card-meta">
-                <span>🚗 ${d.toFixed(1)} km dari ${distLabel}</span>
+                <span>📍 ${d.toFixed(1)} km dari ${distLabel}</span>
             </div>
             <div class="card-actions">
                 <button class="btn btn-gray" onclick="event.stopPropagation(); focusStore(${s.id})">👁️ Lihat</button>
                 <button class="btn ${inRoute ? 'btn-primary' : 'btn-gold'}" onclick="event.stopPropagation(); ${inRoute ? `rmRoute(${s.id})` : `addToRoute(${s.id})`}">
-                    ${inRoute ? '✕ Hapus #' + (routeIdx+1) : '+ Tambah Rute'}
+                    ${inRoute ? '✕ Hapus' : '+ Tambah'}
                 </button>
             </div>
         </div>`;
