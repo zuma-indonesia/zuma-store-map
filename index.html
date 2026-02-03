@@ -727,8 +727,11 @@
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
     <script>
-// DATA
-const stores = [
+// CONFIG - Ganti dengan URL Google Apps Script kamu
+const API_URL = ''; // Kosongkan untuk pakai data lokal, isi dengan URL Apps Script untuk pakai Spreadsheet
+
+// DATA (default - akan di-overwrite jika API_URL diisi)
+let stores = [
     {id:1,name:"Zuma Tanah Lot",branch:"Bali",area:"Bali 1",city:"Tabanan",address:"Jl. Tanah Lot, Desa Beraban, Kec. Kediri",lat:-8.6211,lng:115.0868},
     {id:2,name:"Zuma Dalung",branch:"Bali",area:"Bali 2",city:"Badung",address:"Jl. Raya Padang Luwih No. 208A, Dalung",lat:-8.6362,lng:115.1668},
     {id:3,name:"Zuma Mall Bali Galeria",branch:"Bali",area:"Bali 3",city:"Badung",address:"Jl. By Pass Ngurah Rai, Kuta",lat:-8.7275,lng:115.1893},
@@ -781,7 +784,9 @@ const stores = [
     {id:50,name:"Zuma Mega Mall",branch:"Sulawesi",area:"Sulawesi",city:"Manado",address:"Jl. Piere Tendean Boulevard, Megamas",lat:1.4689,lng:124.8425}
 ];
 
-const refs = {
+let warehouses = [];
+
+let refs = {
     "Bali": { name: "Bandara Ngurah Rai", lat: -8.7467, lng: 115.1672 },
     "Jawa Timur": { name: "Bandara Juanda", lat: -7.3797, lng: 112.7869 },
     "Jakarta": { name: "Bandara Soekarno-Hatta", lat: -6.1256, lng: 106.6558 },
@@ -791,7 +796,7 @@ const refs = {
     "Sulawesi": { name: "Bandara Sam Ratulangi", lat: 1.5492, lng: 124.9261 }
 };
 
-const colors = {"Bali":"#2a9d8f","Jawa Timur":"#1565c0","Jakarta":"#7b1fa2","Lombok & Nusra":"#ef6c00","Pekanbaru":"#f4a261","Batam & Kepri":"#06d6a0","Sulawesi":"#e94560"};
+const colors = {"Bali":"#2a9d8f","Jawa Timur":"#1565c0","Jakarta":"#7b1fa2","Lombok & Nusra":"#ef6c00","Pekanbaru":"#f4a261","Batam & Kepri":"#06d6a0","Sulawesi":"#e94560","Warehouse":"#ff5722"};
 
 // State
 let map, markers = [], routeCtrl = null, routeLines = [], satLayer, defLayer, isSat = false;
@@ -807,7 +812,27 @@ let customStartMarker = null;
 // Init
 document.addEventListener('DOMContentLoaded', init);
 
-function init() {
+async function init() {
+    // Fetch data from API if configured
+    if (API_URL) {
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
+            if (data.stores && data.stores.length > 0) {
+                stores = data.stores;
+            }
+            if (data.warehouses && data.warehouses.length > 0) {
+                warehouses = data.warehouses;
+            }
+            if (data.airports && Object.keys(data.airports).length > 0) {
+                refs = data.airports;
+            }
+            console.log('Data loaded from API:', { stores: stores.length, warehouses: warehouses.length });
+        } catch (err) {
+            console.error('Failed to fetch data from API, using local data:', err);
+        }
+    }
+
     initMap();
     setupEvents();
     load();
