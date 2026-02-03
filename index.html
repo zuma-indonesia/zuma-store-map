@@ -304,6 +304,13 @@
             .chip .remove { width: 22px; height: 22px; }
             .route-chips { padding-bottom: 120px; }
 
+            /* Fix scroll di mobile */
+            .route-list-container {
+                -webkit-overflow-scrolling: touch;
+                overflow-y: scroll !important;
+                touch-action: pan-y;
+            }
+
             /* Action buttons */
             .route-action { padding: 10px; }
             .btn-full { padding: 12px; font-size: 12px; }
