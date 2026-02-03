@@ -199,6 +199,7 @@
         .legend-dot.pekanbaru { background: var(--gold); }
         .legend-dot.batam { background: var(--green); }
         .legend-dot.sulawesi { background: var(--accent); }
+        .legend-dot.warehouse { background: #ff5722; }
 
         /* Popup */
         .leaflet-popup-content-wrapper { border-radius: 12px; padding: 0; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
@@ -719,6 +720,7 @@
                 <div class="legend-item"><div class="legend-dot pekanbaru"></div>Pekanbaru (1)</div>
                 <div class="legend-item"><div class="legend-dot batam"></div>Batam (2)</div>
                 <div class="legend-item"><div class="legend-dot sulawesi"></div>Sulawesi (1)</div>
+                <div class="legend-item"><div class="legend-dot warehouse"></div>Warehouse (3)</div>
             </div>
         </main>
     </div>
@@ -1147,6 +1149,17 @@ function addMarkers() {
         });
         L.marker([pt.lat, pt.lng], { icon }).addTo(map)
             .bindPopup(`<div class="popup-head"><h4>✈️ ${pt.name}</h4><span>Titik Referensi ${br}</span></div>`);
+    });
+
+    // Add warehouse markers
+    warehouses.forEach(w => {
+        const icon = L.divIcon({
+            className: '',
+            html: `<div style="background:#ff5722;border:3px solid white;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px;box-shadow:0 4px 12px rgba(0,0,0,0.3)">🏭</div>`,
+            iconSize: [32, 32], iconAnchor: [16, 16]
+        });
+        L.marker([w.lat, w.lng], { icon }).addTo(map)
+            .bindPopup(`<div class="popup-head" style="background:linear-gradient(135deg,#ff5722,#e64a19)"><h4>🏭 ${w.name}</h4><span>${w.branch}</span></div><div class="popup-body"><p class="popup-addr">${w.address}</p></div>`);
     });
 
     // Add store markers
