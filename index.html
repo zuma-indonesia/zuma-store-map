@@ -306,9 +306,13 @@
 
             /* Fix scroll di mobile */
             .route-list-container {
-                -webkit-overflow-scrolling: touch;
-                overflow-y: scroll !important;
-                touch-action: pan-y;
+                overflow-y: auto;
+                max-height: 50vh;
+            }
+
+            .list {
+                overflow-y: auto;
+                max-height: 50vh;
             }
 
             /* Sembunyikan stats dan start section di mobile */
