@@ -308,32 +308,30 @@
             .start-input { padding: 10px; font-size: 12px; }
             .start-current { padding: 10px; font-size: 10px; }
 
-            /* Chips - compact seperti list */
+            /* Chips - sama persis dengan card toko */
             .route-chips {
+                display: block;
                 padding-bottom: 120px;
-                gap: 0;
             }
             .chip {
-                padding: 10px 12px;
+                display: flex;
+                padding: 8px 10px;
                 font-size: 12px;
                 border-radius: 0;
                 background: white;
                 border-bottom: 1px solid var(--gray-200);
+                margin-bottom: 0;
             }
-            .chip:hover { background: white; }
+            .chip:active { background: var(--gray-100); }
             .chip .num { width: 24px; height: 24px; font-size: 11px; }
             .chip .dist { font-size: 10px; }
             .chip .remove { width: 26px; height: 26px; font-size: 14px; }
 
-            /* Fix scroll di mobile */
-            .route-list-container {
+            /* Scroll sama persis dengan toko */
+            .list, .route-list-container {
+                flex: 1;
                 overflow-y: auto;
-                max-height: 50vh;
-            }
-
-            .list {
-                overflow-y: auto;
-                max-height: 50vh;
+                padding: 0;
             }
 
             /* Sembunyikan stats dan start section di mobile */
