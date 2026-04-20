@@ -27,6 +27,11 @@
         .logo h1 { font-size: 18px; font-weight: 800; }
         .logo span { font-size: 10px; opacity: 0.8; display: block; }
 
+        .mode-switch { display: flex; gap: 6px; background: rgba(0,0,0,0.2); padding: 4px; border-radius: 8px; margin-bottom: 12px; }
+        .mode-switch a { flex: 1; padding: 8px; text-align: center; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.7); text-decoration: none; border-radius: 6px; transition: all 0.2s; }
+        .mode-switch a.active { background: var(--white); color: var(--primary); }
+        .mode-switch a:hover:not(.active) { color: white; }
+
         .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
         .stat { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; text-align: center; }
         .stat .num { font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; color: var(--gold); }
@@ -591,6 +596,10 @@
                         <h1>Zuma Indonesia</h1>
                         <span>Store Mapping & Visit Planner</span>
                     </div>
+                </div>
+                <div class="mode-switch">
+                    <a href="index.html" class="active">Perdin</a>
+                    <a href="area.html">Peta Area</a>
                 </div>
                 <div class="stats">
                     <div class="stat"><div class="num">50</div><div class="lbl">Toko</div></div>
